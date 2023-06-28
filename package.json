@@ -1,0 +1,39 @@
+{
+  "name": "@nexterias/hono-cookie-signature",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup-node",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
+    "test:node": "vitest -c ./vitest.node.ts",
+    "test:edge": "vitest -c ./vitest.edge.ts"
+  },
+  "keywords": [
+    "hono",
+    "cookie",
+    "signature"
+  ],
+  "author": "InkoHX <me@inkohx.dev>",
+  "license": "MIT",
+  "devDependencies": {
+    "@edge-runtime/vm": "^3.0.3",
+    "@nexterias/prettier-config": "^1.0.1",
+    "hono": "^3.2.6",
+    "prettier": "^2.8.8",
+    "tsup": "^7.0.0",
+    "typescript": "^5.1.3",
+    "vitest": "^0.32.2"
+  },
+  "peerDependencies": {
+    "hono": "3.*"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "prettier": "@nexterias/prettier-config"
+}
