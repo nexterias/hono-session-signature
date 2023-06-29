@@ -1,6 +1,5 @@
 import type { MiddlewareHandler } from 'hono'
 import { getCookie } from 'hono/cookie'
-import { HTTPException } from 'hono/http-exception'
 import { decodeBase64Url } from './utils/base64url'
 import { verify } from './signature'
 import { getContextKey } from './utils/context'
