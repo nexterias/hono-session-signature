@@ -30,7 +30,11 @@ export const cookieSignature = (
   return async (context, next) => {
     for (const cookieKey of options.cookies) {
       const rawCookieValue = getCookie(context, cookieKey)
-      if (!rawCookieValue) return context.json({ message: `Cookie(${cookieKey}) is required.` }, 400)
+      if (!rawCookieValue)
+        return context.json(
+          { message: `Cookie(${cookieKey}) is required.` },
+          400
+        )
 
       const splittedCookieValue = splitCookieValue(rawCookieValue)
       if (!splittedCookieValue.value || !splittedCookieValue.signature)
