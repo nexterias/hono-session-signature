@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`cookieSignature 1`] = `
+{
+  "message": "Cookie(bassfreq) is required.",
+}
+`;
+
+exports[`cookieSignature 2`] = `
+{
+  "message": "Invalid cookie value",
+}
+`;
+
+exports[`cookieSignature 3`] = `
+{
+  "message": "Invalid signature",
+}
+`;

@@ -33,6 +33,7 @@ test('cookieSignature', async () => {
     const response = await app.request('/cookie')
 
     expect(response.status).toBe(400)
+    expect(await response.json()).toMatchSnapshot()
   }
 
   {
@@ -44,6 +45,7 @@ test('cookieSignature', async () => {
     })
 
     expect(response.status).toBe(400)
+    expect(await response.json()).toMatchSnapshot()
   }
 
   {
@@ -56,7 +58,8 @@ test('cookieSignature', async () => {
       },
     })
 
-    expect(response.status).toBe(401)
+    expect(response.status).toBe(400)
+    expect(await response.json()).toMatchSnapshot()
   }
 
   {
