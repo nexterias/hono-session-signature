@@ -75,7 +75,7 @@ export default app
 ```js
 import { cookieSignature, importKey } from '@nexterias/hono-cookie-signature'
 
-const secret = importKey(new TextEncoder().encode('DJ Myosuke'))
+const secret = await importKey(new TextEncoder().encode('DJ Myosuke'))
 
 app
   // CookieヘッダーにセットされているfirstNameとlastNameの値が署名されているか検証する
