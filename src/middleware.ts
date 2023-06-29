@@ -5,11 +5,25 @@ import { verify } from './signature'
 import { getContextKey } from './utils/context'
 import { splitCookieValue } from './utils/cookie'
 
+/**
+ * Options for cookie signature middleware.
+ */
 export interface CookieSignatureOptions {
+  /**
+   * The secret key used to sign the cookie.
+   */
   secret: CryptoKey
+
+  /**
+   * An array of cookie keys to verify the signature for.
+   */
   cookies: string[]
 }
 
+/**
+ * @param options The options for cookie signature middleware.
+ * @returns Middleware handler.
+ */
 export const cookieSignature = (
   options: Readonly<CookieSignatureOptions>
 ): MiddlewareHandler => {

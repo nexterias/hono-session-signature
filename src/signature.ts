@@ -1,6 +1,12 @@
 export const HASH_NAME = 'HMAC'
 export const HASH_ALGORITHM = 'SHA-256'
 
+/**
+ * Imports a key from a buffer source.
+ * 
+ * @param key The buffer source containing the key data.
+ * @returns A promise that resolves with the imported key.
+ */
 export const importKey = (key: BufferSource) => {
   return crypto.subtle.importKey(
     'raw',
@@ -11,6 +17,13 @@ export const importKey = (key: BufferSource) => {
   )
 }
 
+/**
+ * Signs the given data with the provided key.
+ * 
+ * @param data The data to sign.
+ * @param key The key to use for signing.
+ * @returns A promise that resolves with the signature as a Uint8Array.
+ */
 export const sign = async (data: BufferSource, key: CryptoKey) => {
   const buf = await crypto.subtle.sign(
     { name: HASH_NAME, hash: HASH_ALGORITHM },
@@ -21,6 +34,14 @@ export const sign = async (data: BufferSource, key: CryptoKey) => {
   return new Uint8Array(buf) // ArrayBuffer to Uint8Array
 }
 
+/**
+ * Verifies the given signature for the provided data and key.
+ * 
+ * @param key The key to use for verification.
+ * @param signature The signature to verify.
+ * @param data The source data to verify.
+ * @returns A promise that resolves with a boolean indicating whether the signature is valid.
+ */
 export const verify = (
   key: CryptoKey,
   signature: BufferSource,

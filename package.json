@@ -11,7 +11,8 @@
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "test:node": "vitest -c ./vitest.node.ts",
-    "test:edge": "vitest -c ./vitest.edge.ts"
+    "test:edge": "vitest -c ./vitest.edge.ts",
+    "docs": "typedoc ./src/index.ts"
   },
   "keywords": [
     "hono",
@@ -26,6 +27,7 @@
     "hono": "^3.2.6",
     "prettier": "^2.8.8",
     "tsup": "^7.0.0",
+    "typedoc": "^0.24.8",
     "typescript": "^5.1.3",
     "vitest": "^0.32.2"
   },
