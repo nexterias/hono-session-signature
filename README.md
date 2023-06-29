@@ -2,7 +2,7 @@
 
 Middleware for signing and verifying cookies with HMAC-SHA256
 
-## 使用例
+## Usage
 
 ```js
 import { Hono } from 'hono'
