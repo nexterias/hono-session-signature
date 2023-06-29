@@ -7,12 +7,12 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup-node",
+    "build:docs": "typedoc ./src/index.ts",
     "typecheck": "tsc --noEmit",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "test:node": "vitest -c ./vitest.node.ts",
-    "test:edge": "vitest -c ./vitest.edge.ts",
-    "docs": "typedoc ./src/index.ts"
+    "test:edge": "vitest -c ./vitest.edge.ts"
   },
   "keywords": [
     "hono",
