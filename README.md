@@ -2,6 +2,9 @@
 
 Middleware for signing and verifying cookies with HMAC-SHA256
 
+[![Documentation](https://github.com/nexterias/hono-session-signature/actions/workflows/docs.yml/badge.svg)](https://github.com/nexterias/hono-session-signature/actions/workflows/docs.yml)
+[![Testing](https://github.com/nexterias/hono-session-signature/actions/workflows/tests.yml/badge.svg)](https://github.com/nexterias/hono-session-signature/actions/workflows/tests.yml)
+
 ## Usage
 
 ```js
