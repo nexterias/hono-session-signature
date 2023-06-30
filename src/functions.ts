@@ -2,7 +2,7 @@ import { Context as HonoContext } from 'hono'
 import { setCookie, getCookie as _getCookie } from 'hono/cookie'
 import type { CookieOptions } from 'hono/utils/cookie'
 import { sign, verify } from './signature'
-import { encodeBase64Url } from './utils/base64url'
+import { decodeBase64Url, encodeBase64Url } from './utils/base64url'
 import { getContextKey } from './utils/context'
 import { concatCookieValue, splitCookieValue } from './utils/cookie'
 
@@ -76,16 +76,18 @@ export const getCookie = async (
   const rawCookieValue = _getCookie(context, name)
   if (!rawCookieValue) return
 
-  const { signature, value } = splitCookieValue(rawCookieValue)
-  if (!signature || !value) return
+  const splittedCookieValue = splitCookieValue(rawCookieValue)
+  if (!splittedCookieValue.signature || !splittedCookieValue.value) return
 
-  const encoder = new TextEncoder()
+  const value = decodeBase64Url(splittedCookieValue.value)
+  const signature = decodeBase64Url(splittedCookieValue.signature)
+
   const verified = await verify(
     key,
-    encoder.encode(signature),
-    encoder.encode(value)
+    signature,
+    value
   )
   if (!verified) return
 
-  return value
+  return new TextDecoder().decode(value)
 }
