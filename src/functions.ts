@@ -17,9 +17,9 @@ export const setCookieWithSignature =
   /**
    * setCookie function
    * @param context Hono context object
-   * @param name key
-   * @param value value
-   * @param options
+   * @param name Cookie name
+   * @param value Cookie value
+   * @param options Cookie options
    * @returns Returns the value signature as a Uint8Array.
    */
   async (
