@@ -3,5 +3,5 @@ export {
   setCookieWithSignature,
   getCookie,
 } from './functions'
-export { cookieSignature, CookieSignatureOptions } from './middleware'
+export { cookieSignature, CookieSignatureMiddlewareOptions } from './middleware'
 export { importKey } from './signature'

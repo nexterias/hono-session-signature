@@ -8,7 +8,7 @@ import { splitCookieValue } from './utils/cookie'
 /**
  * Options for cookie signature middleware.
  */
-export interface CookieSignatureOptions {
+export interface CookieSignatureMiddlewareOptions {
   /**
    * The secret key used to sign the cookie.
    */
@@ -46,7 +46,7 @@ export interface CookieSignatureOptions {
  * ```
  */
 export const cookieSignature = (
-  options: Readonly<CookieSignatureOptions>
+  options: Readonly<CookieSignatureMiddlewareOptions>
 ): MiddlewareHandler => {
   return async (context, next) => {
     for (const cookieKey of options.cookies) {
