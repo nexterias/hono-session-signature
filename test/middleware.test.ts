@@ -1,7 +1,29 @@
 import { Hono } from 'hono'
 import { expect, test } from 'vitest'
-import { USE_MIDDLEWARE, cookieSignature } from '../src/middleware'
+import {
+  USE_MIDDLEWARE,
+  cookieSignature,
+  useCookieSignatureMiddleware,
+} from '../src/middleware'
 import { getVerifiedCookie } from '../src/functions'
+
+test('useCookieSignatureMiddleware', async () => {
+  const app = new Hono()
+
+  app
+    .get('/use-middleware', async (context) => {
+      // @ts-expect-error
+      context.set(USE_MIDDLEWARE, true)
+
+      expect(useCookieSignatureMiddleware(context)).toBeTruthy()
+    })
+    .get('/not-use-middleware', async (context) => {
+      expect(useCookieSignatureMiddleware(context)).toBeFalsy()
+    })
+
+  await app.request('/use-middleware')
+  await app.request('/not-use-middleware')
+})
 
 test('cookieSignature', async () => {
   const secret = await crypto.subtle.importKey(
