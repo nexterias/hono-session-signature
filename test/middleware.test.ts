@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { expect, test } from 'vitest'
-import { cookieSignature } from '../src/middleware'
+import { USE_MIDDLEWARE, cookieSignature } from '../src/middleware'
 import { getVerifiedCookie } from '../src/functions'
 
 test('cookieSignature', async () => {
@@ -23,6 +23,8 @@ test('cookieSignature', async () => {
       expect(getVerifiedCookie(context, 'bassfreq')).toBe('Rawstyle')
       expect(getVerifiedCookie(context, 'caz')).toBe('MEGATON KICK')
       expect(getVerifiedCookie(context, 'mahiro')).toBeUndefined()
+      // @ts-expect-error
+      expect(context.get(USE_MIDDLEWARE)).toBeTruthy()
 
       return context.text('ok')
     }

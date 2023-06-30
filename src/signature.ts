@@ -6,13 +6,13 @@ export const HASH_ALGORITHM = 'SHA-256'
  *
  * @param key The buffer source containing the key data.
  * @returns A promise that resolves with the imported key.
- * 
+ *
  * @example
  * ```ts
  * import { importKey } from '@nexterias/hono-cookie-signature'
- * 
+ *
  * const secret = await importKey(new TextEncoder().encode('THIS_IS_ULTRA_HYPER_SECRET_KEY'))
- * 
+ *
  * console.log(secret)
  * ```
  */
