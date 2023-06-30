@@ -21,8 +21,29 @@ export interface CookieSignatureOptions {
 }
 
 /**
+ * Middleware that supports pre-validation of specified cookie values.
+ * 
  * @param options The options for cookie signature middleware.
- * @returns Middleware handler.
+ * @example
+ * ```ts
+ * import { cookieSignature, importKey, getVerifiedCookie } from '@nexterias/hono-cookie-signature'
+ * import { Hono } from 'hono'
+ * 
+ * const app = new Hono()
+ * const secret = await importKey(new TextEncoder().encode('THIS_IS_ULTRA_HYPER_SECRET_KEY'))
+ * 
+ * app
+ *  .use('/guard', cookieSignature({ secret, cookies: ['session_id'] }))
+ *  .get('/guard', async (context) => {
+ *    const sessionId = getVerifiedCookie(context, 'session_id')
+ * 
+ *    console.log(sessionId)
+ * 
+ *    return context.json({ message: 'ok' })
+ *  })
+ * 
+ * export default app
+ * ```
  */
 export const cookieSignature = (
   options: Readonly<CookieSignatureOptions>
