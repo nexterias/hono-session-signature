@@ -82,11 +82,7 @@ export const getCookie = async (
   const value = decodeBase64Url(splittedCookieValue.value)
   const signature = decodeBase64Url(splittedCookieValue.signature)
 
-  const verified = await verify(
-    key,
-    signature,
-    value
-  )
+  const verified = await verify(key, signature, value)
   if (!verified) return
 
   return new TextDecoder().decode(value)

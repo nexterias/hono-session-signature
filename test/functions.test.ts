@@ -1,5 +1,9 @@
 import { test, expect } from 'vitest'
-import { getCookie, getVerifiedCookie, setCookieWithSignature } from '../src/functions'
+import {
+  getCookie,
+  getVerifiedCookie,
+  setCookieWithSignature,
+} from '../src/functions'
 import { Hono } from 'hono'
 import { HONO_CONTEXT_COOKIE } from '../src/utils/context'
 
@@ -55,7 +59,9 @@ test('getCookie', async () => {
   app.get('/', async (context) => {
     expect(await getCookie(context, secret, 'correct')).toBe('Hello World!')
     expect(await getCookie(context, secret, 'invalid-format')).toBeUndefined()
-    expect(await getCookie(context, secret, 'invalid-signature')).toBeUndefined()
+    expect(
+      await getCookie(context, secret, 'invalid-signature')
+    ).toBeUndefined()
     expect(await getCookie(context, secret, 'not-found')).toBeUndefined()
   })
 
@@ -65,7 +71,7 @@ test('getCookie', async () => {
         'correct=SGVsbG8gV29ybGQh.73Zwsqah8EXA61C31ymNXMgmgENqKYGew_Dv70strgk',
         'invalid-format=QmFzc2ZyZXE:zrSxFiL_eKqF5LpRfczrpSamQolHg0T6zkvqsJCqDWM',
         'invalid-signature=QmFzc2ZyZXE.zrSxFiL_eKqF5LpRfczrpSamQolHg0T6zkvqsJCqDWW',
-      ].join('; ')
-    }
+      ].join('; '),
+    },
   })
 })
