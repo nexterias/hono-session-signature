@@ -1,9 +1,20 @@
-import type { MiddlewareHandler } from 'hono'
+import type { Context as HonoContext, MiddlewareHandler } from 'hono'
 import { getCookie } from 'hono/cookie'
 import { decodeBase64Url } from './utils/base64url'
 import { verify } from './signature'
 import { getContextKey } from './utils/context'
 import { splitCookieValue } from './utils/cookie'
+
+export const USE_MIDDLEWARE = Symbol('use-cookie-signature-middleware')
+
+/**
+ * Returns a boolean indicating whether the cookie signature middleware was used in the given context.
+ *
+ * @param context The Hono context object.
+ * @returns A boolean indicating whether the cookie signature middleware was used.
+ */
+export const useCookieSignatureMiddleware = (context: HonoContext): boolean =>
+  context.get(USE_MIDDLEWARE) ?? false
 
 /**
  * Options for cookie signature middleware.
@@ -22,26 +33,26 @@ export interface CookieSignatureMiddlewareOptions {
 
 /**
  * Middleware that supports pre-validation of specified cookie values.
- * 
+ *
  * @param options The options for cookie signature middleware.
  * @example
  * ```ts
  * import { cookieSignature, importKey, getVerifiedCookie } from '@nexterias/hono-cookie-signature'
  * import { Hono } from 'hono'
- * 
+ *
  * const app = new Hono()
  * const secret = await importKey(new TextEncoder().encode('THIS_IS_ULTRA_HYPER_SECRET_KEY'))
- * 
+ *
  * app
  *  .use('/guard', cookieSignature({ secret, cookies: ['session_id'] }))
  *  .get('/guard', async (context) => {
  *    const sessionId = getVerifiedCookie(context, 'session_id')
- * 
+ *
  *    console.log(sessionId)
- * 
+ *
  *    return context.json({ message: 'ok' })
  *  })
- * 
+ *
  * export default app
  * ```
  */
@@ -70,6 +81,8 @@ export const cookieSignature = (
       const decoder = new TextDecoder()
       context.set(getContextKey(cookieKey), decoder.decode(cookieValue))
     }
+
+    context.set(USE_MIDDLEWARE, true)
 
     return next()
   }
