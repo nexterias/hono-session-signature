@@ -1,7 +1,7 @@
 {
   "name": "@nexterias/hono-cookie-signature",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library for cookie signing and verification using HMAC-SHA256 for Hono.",
   "license": "MIT",
   "homepage": "https://nexterias.github.io/hono-session-signature",
