@@ -8,20 +8,18 @@ import { concatCookieValue, splitCookieValue } from './utils/cookie'
 import { useCookieSignatureMiddleware } from './middleware'
 
 /**
- * Function to set a signed cookie in the Set-Cookie header
+ * Sets a cookie with a signature using the provided key.
  *
- * @param key Key to use for signing
- * @returns setCookie wrapper
+ * @param key The key used for signing the cookie.
  */
 export const setCookieWithSignature =
   (key: CryptoKey) =>
   /**
-   * setCookie function
-   * @param context Hono context object
-   * @param name Cookie name
-   * @param value Cookie value
-   * @param options Cookie options
-   * @returns Returns the value signature as a Uint8Array.
+   * @param context The Hono context object.
+   * @param name The name of the cookie to set.
+   * @param value The value of the cookie to set.
+   * @param options Optional cookie options.
+   * @returns The signature of the cookie.
    */
   async (
     context: HonoContext,
