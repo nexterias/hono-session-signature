@@ -5,7 +5,11 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
   "scripts": {
+    "prepublishOnly": "pnpm build",
     "build": "tsup-node",
     "build:docs": "typedoc ./src/index.ts",
     "typecheck": "tsc --noEmit",
