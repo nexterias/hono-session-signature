@@ -1,10 +1,33 @@
 {
   "name": "@nexterias/hono-cookie-signature",
+  "private": false,
   "version": "1.0.0",
-  "description": "",
+  "description": "A library for cookie signing and verification using HMAC-SHA256 for Hono.",
+  "license": "MIT",
+  "homepage": "https://nexterias.github.io/hono-session-signature",
+  "bugs": {
+    "url": "https://github.com/nexterias/hono-session-signature/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nexterias/hono-session-signature.git"
+  },
+  "keywords": [
+    "hono",
+    "cookie",
+    "signature",
+    "hmac"
+  ],
+  "contributors": [
+    {
+      "name": "InkoHX",
+      "email": "me@inkohx.dev",
+      "url": "https://inkohx.dev"
+    }
+  ],
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
   "files": [
     "./dist"
   ],
@@ -18,13 +41,6 @@
     "test:node": "vitest -c ./vitest.node.ts",
     "test:edge": "vitest -c ./vitest.edge.ts"
   },
-  "keywords": [
-    "hono",
-    "cookie",
-    "signature"
-  ],
-  "author": "InkoHX <me@inkohx.dev>",
-  "license": "MIT",
   "devDependencies": {
     "@edge-runtime/vm": "^3.0.3",
     "@nexterias/prettier-config": "^1.0.1",
