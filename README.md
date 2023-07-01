@@ -1,6 +1,6 @@
 # @nexterias/hono-cookie-signature
 
-Middleware for signing and verifying cookies with HMAC-SHA256
+A library for cookie signing and verification using HMAC-SHA256 for Hono.
 
 [![Documentation](https://github.com/nexterias/hono-session-signature/actions/workflows/docs.yml/badge.svg)](https://github.com/nexterias/hono-session-signature/actions/workflows/docs.yml)
 [![Testing](https://github.com/nexterias/hono-session-signature/actions/workflows/tests.yml/badge.svg)](https://github.com/nexterias/hono-session-signature/actions/workflows/tests.yml)
