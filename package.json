@@ -46,7 +46,7 @@
     "@nexterias/prettier-config": "^1.0.1",
     "hono": "^3.3.4",
     "prettier": "^3.0.1",
-    "tsup": "^7.1.0",
+    "tsup": "^7.2.0",
     "typedoc": "^0.24.8",
     "typescript": "^5.1.6",
     "vitest": "^0.34.1"
