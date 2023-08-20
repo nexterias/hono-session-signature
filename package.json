@@ -44,7 +44,7 @@
   "devDependencies": {
     "@edge-runtime/vm": "^3.0.4",
     "@nexterias/prettier-config": "^1.0.1",
-    "hono": "^3.3.4",
+    "hono": "^3.4.3",
     "prettier": "^3.0.2",
     "tsup": "^7.2.0",
     "typedoc": "^0.24.8",
