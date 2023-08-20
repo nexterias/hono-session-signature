@@ -2,8 +2,8 @@
 
 A library for cookie signing and verification using HMAC-SHA256 for Hono.
 
-[![Documentation](https://github.com/nexterias/hono-session-signature/actions/workflows/docs.yml/badge.svg)](https://github.com/nexterias/hono-session-signature/actions/workflows/docs.yml)
-[![Testing](https://github.com/nexterias/hono-session-signature/actions/workflows/tests.yml/badge.svg)](https://github.com/nexterias/hono-session-signature/actions/workflows/tests.yml)
+[![Documentation](https://github.com/nexterias/hono-cookie-signature/actions/workflows/docs.yml/badge.svg)](https://github.com/nexterias/hono-cookie-signature/actions/workflows/docs.yml)
+[![Testing](https://github.com/nexterias/hono-cookie-signature/actions/workflows/tests.yml/badge.svg)](https://github.com/nexterias/hono-cookie-signature/actions/workflows/tests.yml)
 
 ## Usage
 

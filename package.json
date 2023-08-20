@@ -4,13 +4,13 @@
   "version": "1.0.1",
   "description": "A library for cookie signing and verification using HMAC-SHA256 for Hono.",
   "license": "MIT",
-  "homepage": "https://nexterias.github.io/hono-session-signature",
+  "homepage": "https://nexterias.github.io/hono-cookie-signature",
   "bugs": {
-    "url": "https://github.com/nexterias/hono-session-signature/issues"
+    "url": "https://github.com/nexterias/hono-cookie-signature/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nexterias/hono-session-signature.git"
+    "url": "https://github.com/nexterias/hono-cookie-signature.git"
   },
   "keywords": [
     "hono",
